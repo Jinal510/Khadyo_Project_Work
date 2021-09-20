@@ -1,0 +1,338 @@
+{% load static %}
+<html lang="en">
+
+
+<!-- Mirrored from html.softtechitltd.com/khadyo/khadyo/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Jul 2021 06:55:47 GMT -->
+<head>
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Page Title -->
+    <title>Khadyo - HTML 5 Template</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{% static 'foodhelp/assets/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'foodhelp/assets/css/meanmenu.min.css' %}">
+    <link rel="stylesheet" href="{% static 'foodhelp/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'foodhelp/assets/css/font-awsome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'foodhelp/assets/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'foodhelp/assets/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'foodhelp/assets/css/mystyle.css' %}">
+    <style>
+        .avtar {
+            vertical-align: left;
+            width: 50px;
+            height: 40px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader Starts -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- header -->
+    <header>
+        <!-- header-top -->
+        
+        <!-- header-bottom -->
+        <div class="header-bottom margin-top-20">
+            <div class="container position-relative">
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-1 col-md-2 col-sm-2 col-3">
+                        <div class="logo">
+                            <a href=""> <img src="{% static 'foodhelp/assets/images/logo/logo.png' %}" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 d-none d-lg-block">
+                        <nav id="mobile-menu">
+                            <ul class="main-menu">
+                                <li><a href="{% url 'home' %}">home </a></li>
+                                <li><a href="{% url 'food-supplier' %}">Food Supplier</a></li>
+                                <li><a href="{% url 'ngo' %}">NGO</a></li>
+                                <li><a href="#">Food Post <span><i class="fas fa-angle-down"></i></span></a>
+                                    <ul class="submenu">
+                                        {% if fid %}
+                                        <li><a href="{% url 'add-food' %}">Add Food</a></li>
+                                        {% endif %}
+                                        <li><a href="{% url 'view-food' %}">View Food Post</a></li>
+                                        
+                                    </ul>
+                                </li>
+                                <li><a href="#">Food 4 Needy<span><i class="fas fa-angle-down"></i></span></a>
+                                    <ul class="submenu">
+                                        
+                                        <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                                        {% if uid %}
+                                        <li><a href="{% url 'feedback' %}">Add Feedback</a></li>
+                                        {% endif %}
+                                        
+                                        <li><a href="{% url 'view-feedback' %}">View Feedback</a></li>
+                                        
+                                    </ul>
+                                    
+                                </li>
+                                {% if uid %}
+                                <li><a href="#">Setting<span><i class="fas fa-angle-down"></i></span></a>
+                                    <ul class="submenu">
+                                        <li><a href="{% url 'reset-password' %}">Reset Password</a></li>
+                                        {% if fid %}
+                                        <li><a href="{% url 'profile-food-supplier' %}">My Profile</a></li>
+                                        {% endif %}
+                                        {% if nid %}
+                                        <li><a href="{% url 'profile-ngo' %}">My Profile</a></li>
+                                        {% endif %}
+                                        {% if fid %}
+                                        <li><a href="{% url 'paytmhome' %}">Charity</a></li>
+                                        {% endif %}
+                                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                                    </ul>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-3 col-md-9 col-8">
+                        <div class="customer-area">
+                            {% if uid %}
+                                {% if fid %}
+                                <a href="" class="btn"><img aligh="left" src="{{fid.profile_pic.url}}" alt="avtar" class="avtar" >&nbsp;{{fid.name}}</a>
+                                {% endif %}
+                                {% if nid %}
+                                <a href="" class="btn"><img aligh="left" src="{{nid.profile_pic.url}}" alt="avtar" class="avtar" >&nbsp;{{nid.name}}</a>
+                                {% endif %}
+                            {% else %}
+                            <a href="{% url 'login' %}" class="btn">login</a>
+                            {% endif %}
+                           
+                        </div>
+                    </div>
+                </div>
+                <!-- mobile-menu -->
+                <div class="mobile-menu"></div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- banner-area -->
+    <section class="banner-area padding-top-1 padding-bottom-1">
+        <div class="banner-shapes">
+            <span class="b-shape-1 item-animateOne"><img src="{% static 'foodhelp/assets/images/img/5.png' %}" alt=""></span>
+            <span class="b-shape-2 item-animateTwo"><img src="{% static 'foodhelp/assets/images/img/6.png' %}" alt=""></span>
+            <span class="b-shape-3 item-bounce"><img src="{% static 'foodhelp/assets/images/img/7.png' %}" alt=""></span>
+            <span class="b-shape-4"><img src="{% static 'foodhelp/assets/images/img/9.png' %}" alt=""></span>
+            <span class="b-shape-5"><img src="{% static 'foodhelp/assets/images/shapes/18.png' %}" alt=""></span>
+        </div>
+        {% block content %}
+        <div class="container padding-top-145">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="banner-content">
+                        <h1>enjoy our Healthy <span>food</span></h1>
+                        <!-- order-box -->
+                        <div class="order-box">
+                            <span class="order-img"><img src="{% static 'foodhelp/assets/images/icons/1.png' %}" alt=""></span>
+                            <div class="order-content">
+                                <p>Delivery Order.</p> <span>NGO WILL DELIVERED FOOD</span>
+                            </div>
+                            
+                        </div>
+                        <br><br>
+                        <h1>Help to <span>Needy</span> People</h1>
+                    </div>
+                </div>
+                <div class="d-none d-lg-block col-lg-6 col-xl-6">
+                    <div class="banner-img">
+                        <div class="pizza-shapes">
+                            <span class="p-shape-1"><img src="{% static 'foodhelp/assets/images/img/2.png' %}" alt=""></span>
+                            <span class="p-shape-2"><img src="{% static 'foodhelp/assets/images/img/3.png' %}" alt=""></span>
+                            <span class="p-shape-3"><img src="{% static 'foodhelp/assets/images/img/4.png' %}" alt=""></span>
+                            <span class="p-shape-4"><img src="{% static 'foodhelp/assets/images/img/8.png' %}" alt=""></span>
+                        </div>
+                        <img src="{% static 'foodhelp/assets/images/img/1.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+ 
+    
+  
+   
+
+    <!-- popular-dishes -->
+    <section class="popular-dishes-area padding-top-110">
+        <div class="pshapes">
+            <span class="ps-1 item-animateTwo"><img src="{% static 'foodhelp/assets/images/shapes/11.png' %}" alt=""></span>
+            <span class="ps-2 item-animateTwo"><img src="{% static 'foodhelp/assets/images/shapes/12.png' %}" alt=""></span>
+            <span class="ps-3 item-bounce"><img src="{% static 'foodhelp/assets/images/shapes/13.png' %}" alt=""></span>
+            <span class="ps-4 item-bounce"><img src="{% static 'foodhelp/assets/images/shapes/14.png' %}" alt=""></span>
+            <span class="ps-5"><img src="{% static 'foodhelp/assets/images/shapes/15.png' %}" alt=""></span>
+            <span class="ps-6"><img src="{% static 'foodhelp/assets/images/shapes/16.png' %}" alt=""></span>
+        </div>
+        <div class="container">
+            <nav class="popular-tab-nav d-flex flex-wrap justify-content-between align-items-center">
+                <div class="common-title-area  padding-bottom-30 wow fadeInLeft">
+                    <h3>food items</h3>
+                    <h2>popular <span>dishes</span> </h2>
+                </div>
+                
+            </nav>
+            <!-- main-content -->
+            <div class="tab-content" id="nav-tabContent-1">
+
+                <!-- all items -->
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home">
+                    <div class="row">
+                        {% for i in data %}
+                        <div class="col-xl-3 col-lg-3 col-md-6">
+                            <div class="single-dishes">
+                                <div class="dish-img">
+                                    <img src="{{i.food_picture.url}}" style="width: inherit;" alt="">
+                                </div>
+                                <div class="dish-content">
+                                    <h6><a href="single-dish.html">{{i.contact_person_name}}</a></h6>
+                                    <h6><a href="single-dish.html">{{i.reason}}</a></h6>
+                                    <p>It is a long established fact that a reader BBQ food Chicken.</p>
+                                    <span class="price">Qty:{{i.foodquantity}}</span><br>
+                                    <span class="price">Quality:{{i.foodquality}}</span><br>
+                                    <span class="price">Area Pincode:{{i.zipcode}}</span>
+                                </div>
+                                <span class="badge">Ex Time: {{i.expirytime}}</span>
+                                
+                                <a href="{% url 'view-food-details' pk=i.id %}" class="btn">View More</a>    
+                                
+                            </div>
+                        
+                        </div> 
+                        {% endfor %} 
+                       
+                    </div>
+                </div>
+
+              
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+  
+
+    <!-- testimonial -->
+    <section class="testimonial padding-bottom-50 padding-top-50">
+        <div class="container">
+            <div class="testi-shapes">
+                <span class="ts-1"><img src="{% static 'foodhelp/assets/images/img/31.png' %}" alt=""></span>
+                <span class="ts-2"><img src="{% static 'foodhelp/assets/images/img/32.png' %}" alt=""></span>
+                <span class="ts-3 item-animateTwo"><img src="{% static 'foodhelp/assets/images/shapes/7.png' %}" alt=""></span>
+                <span class="ts-4"><img src="{% static 'foodhelp/assets/images/shapes/26.png' %}" alt=""></span>
+            </div>
+            <div class="common-title-area text-center padding-bottom-50 wow fadeInUp">
+                <h3>testimonial</h3>
+                <h2>client <span>feedback</span></h2>
+            </div>
+            
+            <div class="testimonial-active">
+                {% for j in adata %}
+                <div class="single-testimonial">
+                   
+                    <div class="testi-top">
+                        <div class="tin-shapes">
+                            <span class="tsin-1"><img src="{% static 'foodhelp/assets/images/shapes/33.png' %}" alt=""></span>
+
+                        </div>
+                       
+                        <div class="testi-img">
+                            <img src="" alt="">
+                        </div>
+                        <div class="testi-meta">
+                            <h6>{{j.name}}</h6>
+                            <p>{{j.user_id.email}}</p>
+                            
+                        </div>
+                    </div>
+                    <p>{{j.feedback}}</p>
+                   
+                </div>
+                {% endfor %}
+            </div>
+           
+        </div>
+    </section>
+
+   
+  
+{% endblock %}
+    <!-- footer area -->
+    <footer class="padding-top-40 padding-bottom-40">
+        <div class="fo-shapes">
+            <span class="fs-1"><img src="{% static 'foodhelp/assets/images/gallery/26.png' %}" alt=""></span>
+            <span class="fs-2 item-bounce"><img src="{% static 'foodhelp/assets/images/shapes/25.png' %}" alt=""></span>
+            <span class="fs-3 item-bounce"><img src="{% static 'foodhelp/assets/images/shapes/26.png' %}" alt=""></span>
+            <span class="fs-4 item-bounce"><img src="{% static 'foodhelp/assets/images/shapes/27.png' %}" alt=""></span>
+            <span class="fs-5 item-animateTwo"><img src="{% static 'foodhelp/assets/images/shapes/3.png' %}" alt=""></span>
+            <span class="fs-6"><img src="{% static 'foodhelp/assets/images/shapes/22.png' %}" alt=""></span>
+            <span class="fs-7"><img src="{% static 'foodhelp/assets/images/shapes/30.png' %}" alt=""></span>
+        </div>
+        <div class="footer-top d-none d-md-block">
+            <div class="container">
+                <div class="row align-items-center justify-content-between padding-bottom-25">
+                    <div class="col-lg-3 col-md-3">
+                        <div class="f-logo">
+                            <a href=""> <img src="{% static 'foodhelp/assets/images/logo/logo.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8">
+                        <div class="f-title">
+                            <h4>Enjoy Your Healthy Food<span> Help The Needy People</span></h4>
+                        </div>
+                    </div>
+                    
+                </div>
+                <hr>
+            </div>
+        </div>
+      
+        <div class="copyright-area text-center">
+            <p>Copyright © 2021 <a href="">Khadyo by Jinal Patel</a></p>
+        </div>
+    </footer>
+
+    <!-- ToTop Button -->
+    <button class="scrollup"><i class="fas fa-angle-up"></i></button>
+
+    <!-- Javascript Files -->
+    <script src="{% static 'foodhelp/assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'foodhelp/assets/js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'foodhelp/assets/js/vendor/jquery.meanmenu.min.js' %}"></script>
+    <script src="{% static 'foodhelp/assets/js/vendor/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'foodhelp/assets/js/vendor/slick.min.js' %}"></script>
+    <script src="{% static 'foodhelp/assets/js/vendor/counterup.min.js' %}"></script>
+    <!--<script src="{% static 'foodhelp/assets/js/vendor/countdown.js' %}"></script>-->
+    <script src="{% static 'foodhelp/assets/js/vendor/waypoints.min.js' %}"></script>
+    <script src="{% static 'foodhelp/assets/js/vendor/jquery-ui.js' %}"></script>
+    <script src="{% static 'foodhelp/assets/js/vendor/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'foodhelp/assets/js/vendor/easing.min.js' %}"></script>
+    <script src="{% static 'foodhelp/assets/js/vendor/wow.min.js' %}"></script>
+    <script src="{% static 'foodhelp/assets/js/main.js' %}"></script>
+
+
+</body>
+
+
+<!-- Mirrored from html.softtechitltd.com/khadyo/khadyo/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Jul 2021 06:56:28 GMT -->
+</html>

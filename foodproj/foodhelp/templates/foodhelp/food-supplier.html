@@ -1,0 +1,70 @@
+{% extends 'foodhelp/index.html' %}
+{% load static %}}
+
+{% block content %}
+<!-- breadcrumb-area -->
+<div class="banner-area breadcrumb-area padding-top-1 padding-bottom-1">
+    <div class="bread-shapes">
+        <span class="b-shape-1 item-bounce"><img src="{% static 'foodhelp/assets/images/img/5.png' %}" alt=""></span>
+        <span class="b-shape-2"><img src="{% static 'foodhelp/assets/images/img/6.png' %}" alt=""></span>
+        <span class="b-shape-3"><img src="{% static 'foodhelp/assets/images/img/7.png' %}" alt=""></span>
+        <span class="b-shape-4"><img src="{% static 'foodhelp/assets/images/img/9.png' %}" alt=""></span>
+        <span class="b-shape-5"><img src="{% static 'foodhelp/assets/images/shapes/18.png' %}" alt=""></span>
+        <span class="b-shape-6 item-animateOne"><img src="{% static 'foodhelp/assets/images/img/7.png' %}" alt=""></span>
+    </div>
+    <div class="container padding-top-120">
+        <div class="row justify-content-center">
+            <nav aria-label="breadcrumb">
+                <h2 class="page-title">Food Supplier</h2>
+                <ol class="breadcrumb text-center">
+                    <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Food Supplier</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+    <!--team area -->
+    <section class="team-area padding-bottom-110 padding-top-110 wow fadeInUp">
+        <div class="team-area-shapes">
+            <span class="ts-1"><img src="{% static 'foodhelp/assets/images/shapes/pizza-s1.png' %}" alt=""></span>
+            <span class="ts-2"><img src="{% static 'foodhelp/assets/images/shapes/brr.png' %}" alt=""></span>
+        </div>
+        <div class="container">
+            <div class="common-title-area text-center padding-bottom-50">
+                <h3>team membar</h3>
+                <h2>Food <span>Supplier</span></h2>
+            </div>
+            <div class="team-slider-active">
+                {% for foodie in data %}
+                <div class="single-team text-center">
+                    <div class="s-t-img">
+                        <img src="{{foodie.profile_pic.url}}" alt="">
+                    </div>
+                    <div class="t-content">
+                        <h5>{{foodie.name}} {{foodie.lastname}}</h5>
+                        <span class="t-social"><a href="#"><i class="fas fa-envelope">{{foodie.user_id.email}}</i></a></span>
+                    </div>
+                    <div class="t-social-b">
+                        <span class="follow">follow :</span>
+                        <br>
+                        <br>
+                            
+                            {% if foodie.contact %}
+                                <span class="t-social"><a href="#"><i class="fas fa-phone-alt">{{foodie.contact}}</i></a></span>
+                            {% else %}
+                                <p>------</p>
+                            {% endif %}
+                        <br>
+                        <br>  
+                        <span class="t-social"><a href="#"><i class="fas fa-map-marker">{{foodie.city}}</i></a></span><br><br>
+                        <span class="t-social"><a href="#"><i class="fas fa-map-marker">{{foodie.area}}</i></a></span>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+ {% endblock %}   

@@ -1,0 +1,84 @@
+{% extends 'foodhelp/index.html' %}
+{% load static %}}
+
+{% block content %}
+
+
+    <!-- breadcrumb-area -->
+    
+    <div class="banner-area breadcrumb-area padding-top-1 padding-bottom-1">
+        <div class="bread-shapes">
+            <span class="b-shape-1 item-bounce"><img src="{% static 'foodhelp/assets/images/img/5.png' %}" alt=""></span>
+            <span class="b-shape-2"><img src="{% static 'foodhelp/assets/images/img/6.png' %}" alt=""></span>
+            <span class="b-shape-3"><img src="{% static 'foodhelp/assets/images/img/7.png' %}" alt=""></span>
+            <span class="b-shape-4"><img src="{% static 'foodhelp/assets/images/img/9.png' %}" alt=""></span>
+            <span class="b-shape-5"><img src="{% static 'foodhelp/assets/images/shapes/18.png' %}" alt=""></span>
+            <span class="b-shape-6 item-animateOne"><img src="{% static 'foodhelp/assets/images/img/7.png' %}" alt=""></span>
+        </div>
+        <div class="container padding-top-120">
+            <div class="row justify-content-center">
+                <nav aria-label="breadcrumb">
+                    <h2 class="page-title">Contact Us</h2>
+                    <ol class="breadcrumb text-center">
+                        <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+
+    <!-- info-area -->
+    <div class="info-area padding-bottom-120">
+        <div class="info-shapes">
+            <span class="info-s-1"><img src="{% static 'foodhelp/assets/images/shapes/7.png' %}" alt=""></span>
+            <span class="info-s-2"><img src="{% static 'foodhelp/assets/images/img/32.png' %}" alt=""></span>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 wow fadeInUp" data-wow-delay=".2s">
+                    <div
+                        class="single-info d-flex flex-sm-row flex-md-column flex-lg-row justify-content-around align-items-center">
+                        <div class="info-img">
+                            <img src="{% static 'foodhelp/assets/images/icons/c1.png' %}" alt="">
+                        </div>
+                        <div class="info-content text-center text-lg-left">
+                            <h5>Phone Us 24/7</h5>
+                            <p>9999999999</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 wow fadeInUp" data-wow-delay=".4s">
+                    <div
+                        class="single-info d-flex flex-sm-row flex-md-column flex-lg-row  justify-content-around align-items-center">
+                        <div class="info-img">
+                            <img src="{% static 'foodhelp/assets/images/icons/c2.png' %}" alt="">
+                        </div>
+                        <div class="info-content text-center text-lg-left">
+                            <h5>Get Direction</h5>
+                            <p>Sindhubhavan Road, Ahmedabad, Gujarat, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 wow fadeInUp" data-wow-delay=".6s">
+                    <div
+                        class="single-info d-flex flex-sm-row flex-md-column flex-lg-row  justify-content-around align-items-center">
+                        <div class="info-img">
+                            <img src="{% static 'foodhelp/assets/images/icons/c3.png' %}" alt="">
+                        </div>
+                        <div class="info-content text-center text-lg-left">
+                            <h5>Opening Hours</h5>
+                            <p>Everyday 10.00 AM - 10.00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+{% endblock %}

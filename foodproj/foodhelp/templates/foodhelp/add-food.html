@@ -1,0 +1,86 @@
+{% extends 'foodhelp/index.html' %}
+{% load static %}}
+
+{% block content %}
+<!-- breadcrumb-area -->
+<div class="banner-area breadcrumb-area padding-top-1 padding-bottom-1">
+    <div class="bread-shapes">
+        <span class="b-shape-1 item-bounce"><img src="{% static 'foodhelp/assets/images/img/5.png' %}" alt=""></span>
+        <span class="b-shape-2"><img src="{% static 'foodhelp/assets/images/img/6.png' %}" alt=""></span>
+        <span class="b-shape-3"><img src="{% static 'foodhelp/assets/images/img/7.png' %}" alt=""></span>
+        <span class="b-shape-4"><img src="{% static 'foodhelp/assets/images/img/9.png' %}" alt=""></span>
+        <span class="b-shape-5"><img src="{% static 'foodhelp/assets/images/shapes/18.png' %}" alt=""></span>
+        <span class="b-shape-6 item-animateOne"><img src="{% static 'foodhelp/assets/images/img/7.png' %}" alt=""></span>
+    </div>
+    <div class="container padding-top-120">
+        <div class="row justify-content-center">
+            <nav aria-label="breadcrumb">
+                <h2 class="page-title">Add Food</h2>
+                <ol class="breadcrumb text-center">
+                    <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Food</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+    <!-- checkout-area -->
+    <div class="checkout-area padding-top-120 padding-bottom-120">
+        <div class="cshapes">
+            <span class="cs-1"><img src="{% static 'foodhelp/assets/images/img/6.png' %}" alt=""></span>
+            <span class="cs-2 item-bounce"><img src="{% static 'foodhelp/assets/images/shapes/12.png' %}" alt=""></span>
+            <span class="cs-3"><img src="{% static 'foodhelp/assets/images/shapes/13.png' %}" alt=""></span>
+            <span class="cs-4"><img src="{% static 'foodhelp/assets/images/shapes/14.png' %}" alt=""></span>
+            <span class="cs-5"><img src="{% static 'foodhelp/assets/images/img/32.png' %}" alt=""></span>
+            <span class="cs-6"><img src="{% static 'foodhelp/assets/images/shapes/16.png' %}" alt=""></span>
+        </div>
+        <div class="container">
+            <form action="{% url 'add-food' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-12  col-md-12 wow fadeInUp">
+                        <div class="checkout-left">
+                            <h4>Add Food</h4>
+
+                            <input list="addfood" name="foodaddrole" placeholder="Select-Role">
+                            <datalist id="addfood">
+                                {% for i in food_type %}
+                                <option name="{{i.id}}" value="{{i.role}}"></option>
+                                {% endfor %}
+                            </datalist>
+                            
+                            <input type="text" name="reason" placeholder="reason" >
+                            <input type="text" name="foodquantity"  placeholder="foodquantity" >
+                            <input type="text" name="foodquality" placeholder="foodquality" >
+                            <input type="text" name="cooktime" placeholder="cooktime" >
+                            <input type="text" name="expirytime" placeholder="expirytime" >
+                            <input type="text" name="pickup_address" placeholder="pickup_address" >
+                            <input type="text" name="contact_person_name" placeholder="contact_person_name" >
+                            <input type="text" name="contact_person_number" placeholder="contact_person_number" >
+
+                            <select name="food_categories">
+                                <option value="#" selected disabled>Select Food category</option>
+                                <option value="Vegetarian">Vegetarian</option>
+                                <option value="Non-Vegeterian">Non-Vegeterian</option>
+                                <option value="Jain">Jain</option>
+                            </select>
+                            <lable>Add Picture</lable>
+                            <input type="file" name="picture" placeholder="picture">
+                            
+                            <input type="text" name="zipcode" placeholder="zipcode">
+                            <div class="login-btn">
+                                <input type="submit" class="btn" value="Add Food">
+                                
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- footer area -->
+
+{% endblock %}
+   
